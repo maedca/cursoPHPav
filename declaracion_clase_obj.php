@@ -22,6 +22,20 @@
 
 			}
 		}
+		class Numeros{
+			private $x;
+			private $y;
+
+			public function inicializar($a, $b){
+				$this->x=$a;
+				$this->y=$b;
+			}
+
+			function sumar($a,$b){
+				$suma=$a+$b;
+				echo $suma;
+			}
+		}
 
 		$per1=new Persona();
 		$per1->inicializar('juan', 'marron');
@@ -29,6 +43,9 @@
 		$manuel=new Persona();
 		$manuel->inicializar('Manuel Eduardo','Green');
 		$manuel->imprimir();
+
+		$numero=new Numeros();
+		$numero->sumar(4,5);
 	 ?>
 </body>
 </html>
