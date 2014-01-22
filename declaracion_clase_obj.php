@@ -37,6 +37,22 @@
 			}
 		}
 
+		class Menu{
+			private $enlaces=array();
+			private $titulos=array();
+
+			public function cargarOpcion($en, $tit){
+				$this->enlaces[]=$en;
+				$this->titulos[]=$tit;
+			}
+			function mostrar(){
+				for($f=0; $f<count($this->enlaces);$f++){
+					echo'<a href="'.$this->enlaces[$f].'">'.$this->titulos[$f].'</a>';
+					echo '';
+				}
+			}
+		}
+
 		$per1=new Persona();
 		$per1->inicializar('juan', 'marron');
 		$per1->imprimir();
@@ -46,6 +62,26 @@
 
 		$numero=new Numeros();
 		$numero->sumar(4,5);
+
+		$menu1=new Menu();
+		$menu1->cargarOpcion('http://google.co.ve', 'buscador google');
+		$menu1->cargarOpcion('http://gmail.com','correo electronico');
+
+		$menu1->mostrar();
+
 	 ?>
+
+	 <nav>
+	   <ul>
+	   	<li><?php $menu2=new Menu();
+	   		$menu2->cargarOpcion('http://facebook.com','facebook');
+	   		$menu2->mostrar();
+	   	 ?></li>
+	   	 <li><?php $menu2=new Menu();
+	   		$menu2->cargarOpcion('http://msn.com','hotmal');
+	   		$menu2->mostrar();
+	   	 ?></li>
+	   </ul>
+	 </nav>
 </body>
 </html>
