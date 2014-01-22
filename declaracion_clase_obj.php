@@ -53,6 +53,20 @@
 			}
 		}
 
+		class  CabeceraPagina{
+			private $titulo;
+			private $ubicacion;
+			public function inicializar($tit, $ubi){
+				$this->titulo=$tit;
+				$this->ubicacion=$ubi;
+			}
+			function graficar(){
+				echo '<div style="font-size:40px;text-align:'.$this->ubicacion.'">';
+				echo $this->titulo;
+				echo "</div>";
+			}
+		}
+
 		$per1=new Persona();
 		$per1->inicializar('juan', 'marron');
 		$per1->imprimir();
@@ -70,7 +84,11 @@
 		$menu1->mostrar();
 
 	 ?>
-
+		<header>
+			<?php $encabezado=new CabeceraPagina();
+			$encabezado->inicializar('Titulo del curso ', 'center');
+			$encabezado->graficar(); ?>
+		</header>
 	 <nav>
 	   <ul>
 	   	<li><?php $menu2=new Menu();
@@ -83,5 +101,12 @@
 	   	 ?></li>
 	   </ul>
 	 </nav>
+
+	 <?php 
+	 	$encabezado2=new CabeceraPagina();
+	 	$encabezado2->inicializar('Titulo 2','right');
+	 	$encabezado2->graficar();
+	  ?>
+
 </body>
 </html>
