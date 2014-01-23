@@ -1,10 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
+
 	<?php 
 		class Tabla{
 			private $mat=array();
@@ -15,29 +9,29 @@
 				$this->cantFilas=$fi;
 				$this->cantColumnas=$co;
 			}
-			function cargar($fila, $columna, $valor){
+			public function cargar($fila, $columna, $valor){
 				$this->mat[$fila][$columna]=$valor;
 			}
 
-			function inicioTabla(){
+			private function inicioTabla(){
 				echo '<table border="1">';
 			}
-			function inicioFila(){
+			private function inicioFila(){
 				echo '<tr>';
 			}
-			function mostrar($fi,$co){
+			private function mostrar($fi,$co){
 				echo '<td>'.$this->mat[$fi][$co].'</td>';
 			}
 
-			function finFila(){
+			private function finFila(){
 				echo '</tr>';
 			}
 
-			function finTabla(){
+			private function finTabla(){
 				echo '</table>';
 			}
 
-			function graficar(){
+			public function graficar(){
 				$this->inicioTabla();
 				for($f=1;$f<=$this->cantFilas;$f++){
 					$this->inicioFila();
@@ -52,14 +46,14 @@
 		}
 
 		$tabla1= new Tabla(2,3);
+		
 		$tabla1->cargar(1,1,"1");
 		$tabla1->cargar(1,2,"2");
 		$tabla1->cargar(1,3,"3");
 		$tabla1->cargar(2,1,"4");
+
 		$tabla1->cargar(2,2,"5");
 		$tabla1->cargar(2,3,"6");
 		$tabla1->graficar();
 
 	 ?>
-</body>
-</html>
